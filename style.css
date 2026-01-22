@@ -540,13 +540,16 @@ nav ul li a:hover, .logo-title a:hover {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right center;
-    padding: 100px 6% 150px; /* Espaço extra inferior para a pincelada */
+    padding: 10px 3% 10px; /* Espaço extra inferior para a pincelada */
     color: var(--color-offwhite);
     position: relative;
     overflow: visible;
 }
 
 .cta-bonus-content {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
@@ -601,7 +604,7 @@ nav ul li a:hover, .logo-title a:hover {
 .whatsapp-section-modern {
     /* Fundo Cobre Sólido */
     background-color: var(--color-copper);
-    padding: 100px 20px 150px; /* Espaço extra inferior para a pincelada */
+    padding: 20px 20px 150px; /* Espaço extra inferior para a pincelada */
     text-align: center;
     color: white;
     position: relative;
@@ -673,6 +676,29 @@ nav ul li a:hover, .logo-title a:hover {
 
 .proof-grid img:hover {
   transform: scale(1.03);
+}
+
+/* Breakpoints responsivos com ajuste automático */
+@media (max-width: 1024px) {
+  .proof-grid {
+    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .proof-grid img{
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 900px) {
+  .proof-grid {
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .proof-grid img{
+    width: 100%;
+    max-width: 400px;
+  }
 }
 /* =========================================
    SEÇÃO AUTORIDADE (SOBRE A AUTORA)
@@ -772,7 +798,7 @@ nav ul li a:hover, .logo-title a:hover {
     background-color: var(--color-copper);
     padding: 100px 20px 150px; /* Espaço extra inferior para a pincelada */
     text-align: center;
-    color: white;
+    color: var(--color-text-dark);
     position: relative;
     overflow: visible;
 }
@@ -794,64 +820,66 @@ nav ul li a:hover, .logo-title a:hover {
 
 .timeline {
     position: relative;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    z-index: 20;
-}
-
-/* Linha central da timeline */
-.timeline::after {
+    padding: 0 20px;
+  }
+  
+  .timeline::after {
     content: '';
     position: absolute;
-    width: 2px;
-    background-color: rgba(255, 255, 255, 0.5); /* Linha branca sutil */
+    width: 4px;
+    background-color: #ccc;
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -1px;
-}
-
-.timeline-item {
-    padding: 20px 40px;
+    margin-left: -2px;
+  }
+  
+  .timeline-item {
+    padding: 20px;
     position: relative;
-    background-color: inherit;
     width: 50%;
-    box-sizing: border-box;
-}
-
-.timeline-item.left { left: 0; text-align: right; }
-.timeline-item.right { left: 50%; text-align: left; }
-
-/* Bolinha da timeline */
-.timeline-item::after {
+  }
+  
+  .timeline-item .content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #fef8f4;
+    text-align: left;
+  }
+  
+  .timeline-item.left {
+    left: -36px;
+  }
+  
+  .timeline-item.right {
+    left: 49.55%;
+  }
+  
+  .timeline-item::before {
     content: '';
     position: absolute;
+    top: 30px;
     width: 20px;
     height: 20px;
-    right: -10px;
-    background-color: var(--color-copper);
-    border: 4px solid white; /* Borda branca */
-    top: 50%;
     border-radius: 50%;
+    background-color: #e3c5b3;
+    border: 4px solid white;
     z-index: 1;
-    transform: translateY(-50%);
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.timeline-item.right::after {
+  }
+  
+  .timeline-item.left::before {
+    right: -10px;
+  }
+  
+  .timeline-item.right::before {
     left: -10px;
-}
-
-.timeline-item .content {
-    padding: 30px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: inline-block;
-    max-width: 100%;
-    text-align: left;
-    color: var(--color-navy);
-}
+  }
+  
+  
 
 .timeline-item h3 {
     font-family: var(--font-sans);
@@ -1052,6 +1080,32 @@ nav ul li a:hover, .logo-title a:hover {
 }
 
 
+/* Garante que o container do botão ocupe a largura total e centralize o conteúdo */
+.cta2-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Estilização do botão principal (caso não esteja definida) */
+.main-btn {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 18px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.main-btn:hover {
+    transform: scale(1.05);
+}
+
 /* =========================================
    SEÇÃO FAQ
    ========================================= */
@@ -1173,11 +1227,7 @@ footer {
     .autoridade-img img { max-width: 100%; }
     .autoridade-texto { padding: 30px; }
 
-    .timeline::after { left: 30px; }
-    .timeline-item { width: 100%; padding-left: 70px; padding-right: 0; text-align: left; }
-    .timeline-item.right { left: 0; }
-    .timeline-item::after { left: 20px; right: auto; }
-
+   
     /* Ajuste dos carimbos no tablet */
     .stamp-hero-1 { bottom: -30px; left: 2%; width: 170px; }
     .stamp-hero-2 { bottom: -50px; right: 5%; width: 190px; }
@@ -1227,25 +1277,16 @@ footer {
         box-sizing: border-box;
     }
 
-    .comparison-grid {
-        display: flex;
-        flex-direction: column;
-        border: none;
-        box-shadow: none;
-        gap: 20px;
-    }
+  
 
     /* Card view para o comparativo no mobile */
-    .comparison-row-title, .comparison-header.empty { display: none; }
-    .comparison-header { border-radius: 12px 12px 0 0; margin-top: 0; padding: 15px; }
-    .comparison-cell { border: 1px solid #eee; border-top: none; padding: 15px; }
-    .comparison-cell:last-child { border-radius: 0 0 12px 12px; }
+    
 
     .guarantee-section { padding: 30px 20px; }
 
     /* Ajuste de padding nas seções para mobile */
     .vsl-section, .cta-what-you-get-section, .cta-bonus-section, .whatsapp-section-modern, .social-proof-section, .autoridade-section, .metodo-section {
-        padding-bottom: 120px;
+        padding-bottom: 20px;
 
 
     
