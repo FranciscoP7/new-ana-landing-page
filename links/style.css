@@ -1,0 +1,170 @@
+
+:root {
+  --bg-dark: #000000;
+  --card-bg: rgba(11, 21, 35, 0.95); /* Leve transparência para integrar com o fundo */
+  --btn-bg: #15263a;
+  --text-white: #ffffff;
+  --accent-gold: #5e3b2e;
+  --font-main: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  overflow: hidden;
+}
+
+.main-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fundo com Imagem */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/ana-perfil-completo.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) contrast(1.1) brightness(0.4);
+  z-index: 1;
+}
+
+/* Camada extra de opacidade/suavização */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+  z-index: 2;
+}
+
+.content-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.link-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--card-bg);
+  border: 1.5px solid var(--accent-gold);
+  border-radius: 20px;
+  padding: 50px 30px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.card-header h1 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+}
+
+.card-header .subtitle {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #a0a0a0;
+  margin-bottom: 40px;
+}
+
+.links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-link {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--btn-bg);
+  color: var(--text-white);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.btn-link:hover {
+  background-color: #1a2f4a;
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.social-footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  color: #a0a0a0;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.social-icon:hover {
+  color: var(--text-white);
+  transform: scale(1.1);
+}
+
+.site-footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Ajustes Mobile */
+@media (max-width: 480px) {
+  .link-card {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+
+  .card-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .site-footer {
+    bottom: 10px;
+  }
+}
